@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npx pnpm --filter starlight-glide-docs build",
+  "outputDirectory": "docs/dist",
+  "framework": "astro"
+}

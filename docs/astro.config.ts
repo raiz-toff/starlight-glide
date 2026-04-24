@@ -1,8 +1,10 @@
+import vercel from '@astrojs/vercel'
 import starlight from '@astrojs/starlight'
 import { defineConfig } from 'astro/config'
 import starlightGlide from 'starlight-glide'
 
 export default defineConfig({
+  adapter: vercel(),
   integrations: [
     starlight({
       editLink: {
