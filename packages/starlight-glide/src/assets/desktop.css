@@ -1,0 +1,111 @@
+@media (min-width: 72.01rem) {
+  /* Container for the TOC navigation */
+  .right-sidebar nav {
+    position: relative;
+    padding-top: 4rem;
+  }
+
+  /* Remove default Starlight TOC borders/bullets */
+  .right-sidebar nav ul,
+  .right-sidebar nav ul li {
+    border: none;
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  .right-sidebar nav ul::before {
+    display: none;
+  }
+
+  /* Hide the default Starlight TOC header on desktop */
+  .right-sidebar nav h2:not(.desktop-toc-header) {
+    display: none;
+  }
+
+  /* The SVG track container */
+  .toc-svg-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    will-change: contents;
+  }
+
+  /* The faint background track */
+  .toc-path-track {
+    fill: none;
+    stroke: var(--glide-track-color, var(--sl-color-gray-5));
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.4;
+  }
+
+  /* The glowing active "snake" path */
+  .toc-path-snake {
+    fill: none;
+    stroke: var(--glide-indicator-color, var(--sl-color-accent));
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dasharray  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: stroke-dashoffset, stroke-dasharray;
+  }
+
+  /* Styling for the TOC text links */
+  .right-sidebar a {
+    display: block;
+    text-decoration: none;
+    font-size: var(--sl-text-xs);
+    line-height: 1.6;
+    color: var(--sl-color-gray-3);
+    border-inline-start: none;
+    transition: color 0.2s ease;
+    padding-block: 0.35rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  /* Styling for the Desktop TOC Header */
+  .desktop-toc-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--sl-color-white);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-inline-start: 0;
+  }
+
+  /* Indentation for nested headings */
+  .right-sidebar nav ul ul a { padding-inline-start: 2.25rem; }
+  .right-sidebar nav ul ul ul a { padding-inline-start: 3rem; }
+
+  .right-sidebar a:hover {
+    color: var(--sl-color-white);
+  }
+
+  /* Active state for the currently viewed section */
+  .right-sidebar a.toc-active,
+  .right-sidebar a[aria-current="true"] {
+    color: var(--glide-indicator-color, var(--sl-color-accent));
+    font-weight: 600;
+  }
+}
+
+/* Glassmorphism overrides for Desktop */
+@media (min-width: 72.01rem) {
+  html.glide-glassmorphism .right-sidebar {
+    background-color: color-mix(in srgb, var(--sl-color-bg) 60%, transparent) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--sl-color-hairline) 40%, transparent);
+  }
+}

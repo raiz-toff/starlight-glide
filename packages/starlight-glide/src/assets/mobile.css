@@ -1,0 +1,219 @@
+/* =================================================================
+   MOBILE VIEW (<= 72rem)
+   ================================================================= */
+@media (max-width: 72rem) {
+  /* Container for the mobile TOC */
+  mobile-starlight-toc nav {
+    position: fixed !important;
+    top: var(--sl-nav-height) !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 90 !important;
+    background: transparent !important;
+    visibility: visible !important;
+  }
+
+  /* Hide TOC when mobile menu is open */
+  [data-mobile-menu-expanded] mobile-starlight-toc {
+    display: none !important;
+  }
+
+  @media (min-width: 50rem) {
+    mobile-starlight-toc nav {
+      left: var(--sl-sidebar-width, 0rem) !important;
+      width: calc(100% - var(--sl-sidebar-width, 0rem)) !important;
+    }
+  }
+
+  /* The Title Bar */
+  mobile-starlight-toc summary {
+    background-color: var(--sl-color-bg-nav) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--sl-color-hairline) !important;
+    margin: 0 !important;
+    padding: 0.6rem 1rem !important;
+    font-size: 0 !important;
+    color: transparent !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    box-shadow: none !important;
+    outline: none !important;
+    opacity: 0; /* Hide the entire box initially */
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  mobile-starlight-toc summary.glide-ready {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  mobile-starlight-toc summary .displaytext {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9rem !important;
+    color: var(--sl-color-white) !important;
+  }
+
+  mobile-starlight-toc summary .caret {
+    font-size: 1rem !important;
+    color: var(--sl-color-gray-3) !important;
+  }
+
+  /* The Dropdown Menu */
+  mobile-starlight-toc .dropdown {
+    background-color: var(--sl-color-bg-nav) !important;
+    border: 1px solid var(--sl-color-hairline) !important;
+    border-top: none !important;
+    box-shadow: var(--sl-shadow-sm) !important; /* Lighter shadow for a minimal feel */
+    position: absolute !important;
+    top: 100% !important; /* Right below the summary bar */
+    left: 0 !important;
+    width: 100% !important;
+    max-height: 50vh !important; /* Exactly half screen height */
+    overflow-y: auto !important;
+    overscroll-behavior: auto !important; /* Ensures seamless scroll chaining to the page */
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+    border-radius: 0 0 8px 8px !important;
+    margin: 0 !important;
+    padding: 0.5rem 0 !important; /* Tighter vertical padding */
+    z-index: 89 !important;
+    transform-origin: top;
+    animation: glideSlideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  mobile-starlight-toc .dropdown::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  @keyframes glideSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scaleY(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+  }
+
+  /* Hide the drag handle */
+  .drag-handle {
+    display: none !important;
+  }
+
+  /* ---------------------------------------------------------
+     Single-Line Track Logic
+     --------------------------------------------------------- */
+  
+  /* Reset all lists */
+  mobile-starlight-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  /* Remove default Starlight horizontal separating lines */
+  mobile-starlight-toc ul, 
+  mobile-starlight-toc li {
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Only the main container gets the track line */
+  mobile-starlight-toc .dropdown > ul {
+    border-left: 1px solid var(--sl-color-gray-5);
+    margin-left: 1.5rem;
+  }
+
+  /* Nested lists do not shift inward physically */
+  mobile-starlight-toc ul ul {
+    border-left: none !important;
+    margin-left: 0 !important;
+  }
+
+  /* Links stay aligned to the main track, text indents via padding */
+  mobile-starlight-toc a {
+    display: block;
+    text-decoration: none;
+    padding: 0.35rem 1rem !important; /* Default level 1 padding */
+    color: var(--sl-color-gray-3);
+    border-left: 2px solid transparent !important; /* The active indicator */
+    margin-left: -1px; /* Align precisely with the main track */
+    font-size: 0.85rem !important;
+    transition: all 0.2s ease;
+  }
+
+  /* Level 2 indentation */
+  mobile-starlight-toc ul ul a {
+    padding-left: 2rem !important;
+  }
+
+  /* Level 3 indentation */
+  mobile-starlight-toc ul ul ul a {
+    padding-left: 3rem !important;
+  }
+
+  /* Active state */
+  mobile-starlight-toc a.toc-active,
+  mobile-starlight-toc a[aria-current="true"] {
+    border-left-color: var(--glide-indicator-color, var(--sl-color-accent)) !important;
+    color: var(--sl-color-white);
+    background-color: var(--sl-color-gray-6); /* Subtle active gray */
+    font-weight: 600;
+  }
+  .toc-progress-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  .toc-progress-circle svg {
+    transform: rotate(-90deg);
+  }
+
+  .progress-ring {
+    transition: stroke-dashoffset 0.1s linear;
+  }
+
+  /* Ensure page content has enough room for the FIXED TOC bar */
+  .main-frame {
+    padding-top: calc(var(--sl-nav-height) + 3rem) !important;
+  }
+
+  /* Ensure the body or main container doesn't have overflow issues */
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+/* Glassmorphism overrides for Mobile */
+html.glide-glassmorphism mobile-starlight-toc summary,
+html.glide-glassmorphism mobile-starlight-toc .dropdown {
+  background-color: color-mix(in srgb, var(--sl-color-bg-nav) 65%, transparent) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+}
+
+/* Soften the borders for the glass effect */
+html.glide-glassmorphism mobile-starlight-toc summary {
+  border-bottom-color: color-mix(in srgb, var(--sl-color-hairline) 40%, transparent) !important;
+}
+html.glide-glassmorphism mobile-starlight-toc .dropdown {
+  border-color: color-mix(in srgb, var(--sl-color-hairline) 40%, transparent) !important;
+}
+
+/* Hide the static background track lines (mobile) so only the "glider" is visible */
+html.glide-glassmorphism mobile-starlight-toc .dropdown > ul {
+  border-left-color: transparent !important;
+}

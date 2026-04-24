@@ -1,0 +1,32 @@
+{
+  "name": "starlight-glide-docs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Awesome Toc",
+  "author": "raiz-toff",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.38.4",
+    "astro": "^6.1.9",
+    "sharp": "^0.34.5",
+    "starlight-glide": "workspace:*"
+  },
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
+  "private": true,
+  "homepage": "https://github.com/raiz-toff/starlight-glide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raiz-toff/starlight-glide.git",
+    "directory": "docs"
+  },
+  "bugs": "https://github.com/raiz-toff/starlight-glide/issues"
+}

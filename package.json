@@ -1,0 +1,25 @@
+{
+  "name": "starlight-glide-monorepo",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Awesome Toc",
+  "author": "raiz-toff",
+  "type": "module",
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter starlight-glide-docs dev --host"
+  },
+  "homepage": "https://github.com/raiz-toff/starlight-glide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raiz-toff/starlight-glide.git"
+  },
+  "bugs": "https://github.com/raiz-toff/starlight-glide/issues",
+  "dependencies": {
+    "pnpm": "^10.33.2"
+  }
+}
