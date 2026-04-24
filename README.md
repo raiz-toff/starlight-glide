@@ -1,6 +1,9 @@
 # `starlight-glide` 🐍
 
-Awesome Toc
+> [!WARNING]
+> **Work in Progress**: This plugin is currently under active development. If you encounter any bugs or have feature requests, please [open an issue](https://github.com/raiz-toff/starlight-glide/issues).
+
+A premium, Fumadocs-inspired Table of Contents indicator for Starlight documentation.
 
 ## Package
 
