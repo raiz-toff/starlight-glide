@@ -1,0 +1,37 @@
+/* =================================================================
+   Desktop Preset: Snake — SVG path indicator styles
+   ================================================================= */
+@media (min-width: 72.01rem) {
+  /* The SVG track container */
+  .toc-svg-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    will-change: contents;
+  }
+
+  /* The faint background track */
+  .toc-path-track {
+    fill: none;
+    stroke: var(--glide-track-color);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.4;
+  }
+
+  /* The glowing active "snake" path */
+  .toc-path-snake {
+    fill: none;
+    stroke: var(--glide-indicator-color);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    will-change: stroke-dashoffset, stroke-dasharray;
+  }
+}
+

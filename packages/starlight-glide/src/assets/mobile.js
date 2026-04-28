@@ -55,4 +55,11 @@ window.initMobile = function initMobile() {
 
   window.addEventListener('scroll', updateMobileProgress, { passive: true });
   updateMobileProgress();
+
+  // Dynamically adjust main-frame padding only when mobile TOC is present
+  // (moved from CSS to avoid global layout side-effects)
+  const mainFrame = document.querySelector('.main-frame');
+  if (mainFrame) {
+    mainFrame.style.paddingTop = `calc(var(--sl-nav-height) + 3rem)`;
+  }
 }

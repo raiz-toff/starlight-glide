@@ -1,0 +1,37 @@
+/* =================================================================
+   Desktop Preset: Dot — sliding dot indicator styles
+   ================================================================= */
+@media (min-width: 72.01rem) {
+  /* Vertical track line */
+  .glide-dot-track {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 2px;
+    height: 100%;
+    background: var(--glide-track-color);
+    opacity: 0.3;
+    pointer-events: none;
+    border-radius: 1px;
+  }
+
+  /* The dot indicator */
+  .glide-dot-indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--glide-indicator-color);
+    transform: translateX(-50%) translateY(0);
+    opacity: 0;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--glide-indicator-color) 60%, transparent);
+    will-change: transform;
+  }
+
+  .glide-dot-indicator.active {
+    opacity: 1;
+  }
+}
+

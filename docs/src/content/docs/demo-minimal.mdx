@@ -1,0 +1,61 @@
+---
+title: Mobile Minimal Demo
+description: Showcasing the minimal mobile layout with snap physics.
+glide:
+  mobile: minimal
+  physics: snap
+---
+
+import { Steps, Tabs, TabItem, Badge } from "@astrojs/starlight/components";
+import MobilePreview from "../../components/MobilePreview.astro";
+
+This page demonstrates the **starlight-glide** plugin in action with the `minimal` mobile preset and `snap` physics <Badge text="Snap Physics" variant="note" />.
+
+<MobilePreview />
+
+If you're on desktop, you can see how it looks on mobile using the preview above, or resize your browser window!
+
+
+## Mobile View
+
+<Steps>
+1. **No Dropdown:** Unlike the default mobile view, the minimal preset only shows a progress bar and the current heading.
+2. **Snap Physics:** The desktop indicator (if visible) will instantly jump to the active section without animation.
+3. **Screen Space:** This saves valuable vertical screen real estate on small devices.
+</Steps>
+
+## Deep Nesting Test
+
+Notice how snappy the updates are!
+
+### Sub-heading Level 3 (A)
+Instant jump.
+
+### Sub-heading Level 3 (B)
+No delay.
+
+## Physics Modes
+
+Comparing different physics options.
+
+<Tabs>
+  <TabItem label="Snap (Here)">
+    Zero delay, immediate transitions. Best for users who prefer instant feedback.
+  </TabItem>
+  <TabItem label="Smooth">
+    Clean, professional cubic-bezier easing.
+  </TabItem>
+  <TabItem label="Spring">
+    Bouncy overshoot then settle — dynamic feel.
+  </TabItem>
+</Tabs>
+
+## Conclusion
+
+You can configure desktop, mobile, and physics independently!
+
+### Try It Out
+Test on your mobile device to see the difference.
+
+### Responsive
+Everything adapts seamlessly.

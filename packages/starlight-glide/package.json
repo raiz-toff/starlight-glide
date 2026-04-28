@@ -1,12 +1,29 @@
 {
   "name": "starlight-glide",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "MIT",
-  "description": "Awesome Toc",
+  "description": "A premium, modular Table of Contents indicator for Starlight documentation.",
   "author": "raiz-toff",
   "type": "module",
+  "keywords": [
+    "starlight",
+    "starlight-plugin",
+    "astro",
+    "toc",
+    "table-of-contents",
+    "ui"
+  ],
+  "files": [
+    "index.ts",
+    "schema.ts",
+    "middleware.ts",
+    "src/core",
+    "src/presets"
+  ],
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./schema": "./schema.ts",
+    "./middleware": "./middleware.ts"
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.38.4",

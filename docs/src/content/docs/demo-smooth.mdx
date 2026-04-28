@@ -1,0 +1,52 @@
+---
+title: Smooth Snake Demo
+description: Showcasing the snake theme with smooth physics and purple styling.
+glide:
+  desktop: snake
+  mobile: dropdown
+  physics: smooth
+  indicatorColor: '#a855f7'
+  trackColor: 'rgba(168, 85, 247, 0.2)'
+---
+
+import { Steps, Tabs, TabItem, Badge } from "@astrojs/starlight/components";
+
+This page demonstrates the **starlight-glide** plugin using the classic `snake` theme, `smooth` physics, and a custom **Purple** color palette for both the track and the indicator.
+
+## Theme & Physics
+
+<Steps>
+1. **Snake Theme:** The indicator is an SVG path that bends and slithers through different indentations.
+2. **Smooth Physics:** The movement is controlled by a fluid cubic-bezier transition.
+3. **Custom Colors:** We are using `#a855f7` for the indicator and a translucent purple for the track.
+</Steps>
+
+## Deep Nesting Test
+
+Scroll through these sections to watch the smooth transitions and custom colors in action.
+
+### Sub-heading Level 3 (A)
+Content for sub-heading A.
+
+### Sub-heading Level 3 (B)
+Content for sub-heading B.
+
+## Animation Smoothness
+
+The snake uses CSS transitions for `stroke-dashoffset` and `stroke-dasharray`.
+
+<Tabs>
+  <TabItem label="Transition Timing">
+    We use a custom cubic-bezier timing function to make the movement feel natural and "glidey."
+  </TabItem>
+  <TabItem label="Responsiveness">
+    The indicator automatically recalculates its path on window resize to stay perfectly aligned with your links.
+  </TabItem>
+</Tabs>
+
+## Conclusion
+
+The Glide TOC adds that extra touch of polish to your Starlight site, making navigation feel alive.
+
+### Try the other demos
+Check the sidebar for other variations of themes, physics, and colors!

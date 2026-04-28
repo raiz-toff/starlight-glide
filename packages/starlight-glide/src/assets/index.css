@@ -1,2 +1,7 @@
-@import './desktop.css';
-@import './mobile.css';
+/* starlight-glide — CSS entry point
+   This file is kept for backwards compatibility.
+   The new architecture loads preset CSS directly via index.ts.
+   If this file is still referenced, it imports the base styles. */
+@layer starlight-glide;
+
+@import '../core/base.css' layer(starlight-glide);

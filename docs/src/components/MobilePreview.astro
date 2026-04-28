@@ -1,0 +1,20 @@
+---
+// docs/src/components/MobilePreview.astro
+---
+
+<div class="mobile-preview-container">
+  <div class="phone-mockup">
+    <iframe id="mobile-preview-iframe" src="about:blank"></iframe>
+  </div>
+  <span class="mobile-preview-hint">Live Mobile Preview (375x667)</span>
+</div>
+
+<script>
+  // Set iframe src dynamically to current page + embed parameter
+  const iframe = document.getElementById('mobile-preview-iframe') as HTMLIFrameElement;
+  if (iframe) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('embed', 'true');
+    iframe.src = url.toString();
+  }
+</script>

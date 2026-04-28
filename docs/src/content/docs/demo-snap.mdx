@@ -1,0 +1,55 @@
+---
+title: Snappy Minimal Demo
+description: Showcasing snap physics with custom emerald styling and minimal mobile view.
+glide:
+  desktop: snake
+  mobile: minimal
+  physics: snap
+  indicatorColor: '#10b981'
+  trackColor: 'rgba(16, 185, 129, 0.2)'
+---
+
+import { Steps, Tabs, TabItem, Badge } from "@astrojs/starlight/components";
+
+This page demonstrates the **starlight-glide** plugin using `snap` physics, the `minimal` mobile view, and a custom **Emerald** color palette.
+
+## Theme & Physics
+
+<Steps>
+1. **Snap Physics:** The indicator instantly jumps to the active heading with zero delay.
+2. **Minimal Mobile View:** If you view this on a small screen, you'll see the minimal progress bar instead of the dropdown menu.
+3. **Custom Colors:** We are using `#10b981` for the indicator and a translucent emerald for the track.
+</Steps>
+
+## Deep Nesting Test
+
+Notice how snappy the updates are!
+
+### Sub-heading Level 3 (A)
+Instant jump.
+
+### Sub-heading Level 3 (B)
+No delay.
+
+## Physics Modes
+
+Comparing different physics options.
+
+<Tabs>
+  <TabItem label="Snap (Here)">
+    Zero delay, immediate transitions. Best for users who prefer instant feedback.
+  </TabItem>
+  <TabItem label="Smooth">
+    Clean, professional cubic-bezier easing.
+  </TabItem>
+  <TabItem label="Spring">
+    Bouncy overshoot then settle — dynamic feel.
+  </TabItem>
+</Tabs>
+
+## Conclusion
+
+You can configure desktop, mobile, physics, and colors independently for every single page.
+
+### Try It Out
+Test on your mobile device to see the difference with the minimal view.

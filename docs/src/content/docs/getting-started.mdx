@@ -2,7 +2,11 @@
 title: Getting Started
 ---
 
-Awesome Toc
+A premium, animated Table of Contents indicator for [Starlight](https://starlight.astro.build) documentation sites.
+
+:::note[Zero Config Theme Matching]
+`starlight-glide` automatically inherits your active theme's colors (including Rapide, Base Starlight, or custom CSS). It uses a "decoupled" styling system that adopts your accent colors perfectly with no manual setup required.
+:::
 
 ## Prerequisites
 
@@ -11,7 +15,7 @@ If you don't have one yet, you can follow the ["Getting Started"](https://starli
 
 ## Installation
 
-import { Steps, Tabs, TabItem } from '@astrojs/starlight/components'
+import { Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 
 <Steps>
 
@@ -63,7 +67,7 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components'
    })
    ```
 
-3. **(Optional)** Customize the plugin. By default, the TOC uses your theme's accent colors. You can customize the header text, colors, and the "snake" path depth via the plugin options:
+3. **(Optional)** Customize the plugin. Pick your presets for desktop indicator, mobile view, and animation physics:
 
    ```diff lang="js"
    // astro.config.mjs
@@ -72,8 +76,9 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components'
        starlight({
          plugins: [
            starlightGlide({
-   +          headerText: 'On this page',
-   +          indicatorColor: 'var(--sl-color-accent)',
+   +          desktop: 'snake',        // or 'dot'
+   +          mobile: 'dropdown',      // or 'minimal'
+   +          physics: 'smooth',       // or 'spring', 'snap'
    +          glassmorphism: true,
             })
           ],
@@ -82,7 +87,7 @@ import { Steps, Tabs, TabItem } from '@astrojs/starlight/components'
     })
    ```
 
-   Check out the [Configuration guide](/configuration/) for a full list of available options.
+   Check out the [Configuration guide](/configuration/) for all presets and per-page overrides.
 
 4. [Start the development server](https://starlight.astro.build/getting-started/#start-the-development-server) to preview the plugin in action.
 

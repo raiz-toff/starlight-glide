@@ -3,6 +3,10 @@ window.initDesktop = function initDesktop() {
   const sidebar = document.querySelector('starlight-toc nav ul') || document.querySelector('.right-sidebar nav ul');
   if (!sidebar || sidebar.querySelector('.toc-svg-track') || sidebar.closest('mobile-starlight-toc')) return;
 
+  // Mark the sidebar as having Glide TOC for CSS scoping
+  const sidebarContainer = sidebar.closest('.right-sidebar');
+  if (sidebarContainer) sidebarContainer.setAttribute('data-glide-toc', '');
+
   const config = window.starlightGlideOptions || {
     headerText: 'On this page',
     depthOffsets: [8, 24, 40],

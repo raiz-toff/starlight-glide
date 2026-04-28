@@ -1,0 +1,80 @@
+/* =================================================================
+   Mobile Preset: Minimal — thin progress bar + section title
+   ================================================================= */
+@media (max-width: 72rem) {
+  /* The minimal bar container */
+  .glide-minimal-bar {
+    position: fixed;
+    top: var(--sl-nav-height);
+    left: 0;
+    width: 100%;
+    z-index: 90;
+    background-color: var(--glide-bg);
+    border-bottom: 1px solid var(--glide-border);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  @media (min-width: 50rem) {
+    .glide-minimal-bar {
+      left: var(--sl-sidebar-width, 0rem);
+      width: calc(100% - var(--sl-sidebar-width, 0rem));
+    }
+  }
+
+  /* Hide when mobile menu is open */
+  [data-mobile-menu-expanded] .glide-minimal-bar {
+    display: none !important;
+  }
+
+  /* Progress bar track */
+  .glide-minimal-progress-track {
+    width: 100%;
+    height: 2px;
+    background: var(--glide-track-color);
+    opacity: 0.3;
+  }
+
+  /* Progress bar fill */
+  .glide-minimal-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--glide-indicator-color);
+    transition: width 0.1s linear;
+    border-radius: 0 1px 1px 0;
+  }
+
+  /* Section title text */
+  .glide-minimal-title {
+    font-size: 0.8rem;
+    color: var(--glide-text-muted);
+    padding: 0.35rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hide original summary when minimal is active */
+  mobile-starlight-toc:has(.glide-minimal-bar) summary {
+    display: none !important;
+  }
+
+  mobile-starlight-toc:has(.glide-minimal-bar) nav {
+    position: fixed !important;
+    top: var(--sl-nav-height) !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 90 !important;
+    background: transparent !important;
+  }
+}
+
+/* Glassmorphism — Minimal Mobile */
+html.glide-glassmorphism .glide-minimal-bar {
+  background-color: color-mix(in srgb, var(--glide-bg) 65%, transparent) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom-color: color-mix(in srgb, var(--glide-border) 40%, transparent) !important;
+}
+
