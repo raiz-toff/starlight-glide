@@ -29,15 +29,45 @@ hero:
 ---
 
 
-import { Card, CardGrid } from '@astrojs/starlight/components'
+import { Card, CardGrid, Steps } from '@astrojs/starlight/components'
 
-## Next steps
+## Navigation that feels like Magic
 
-<CardGrid stagger>
-  <Card title="Install the plugin" icon="puzzle">
-    Check the [getting started guide](/getting-started/) for installation instructions.
+Standard documentation can feel static. `starlight-glide` brings your Table of Contents to life with fluid, high-performance animations that guide your users as they scroll.
+
+### Built for Every Theme
+Stop worrying about CSS conflicts. Our **Decoupled Architecture** creates a private styling namespace (`--glide-`) that intelligently "listens" to your site's colors. Whether you use the standard Starlight theme, the sleek **Rapide** theme, or a completely custom design, Glide adapts instantly.
+
+### Modular by Design
+Don't settle for one-size-fits-all.
+- **On Desktop:** Choose the "Snake" for a fluid, organic path, or the "Dot" for a minimal, precision-focused indicator.
+- **On Mobile:** Keep it light with the "Minimal" bar or go full-featured with the glassmorphic "Dropdown" menu.
+
+:::tip[Performance First]
+Glide is built with performance as a priority. All animations use hardware-accelerated CSS transforms and lightweight SVG paths, ensuring a smooth experience even on low-end mobile devices.
+:::
+
+## See it in Action
+
+<CardGrid>
+  <Card title="Live Demos" icon="rocket">
+    Experience all presets and physics modes in our [interactive demo gallery](/demos/).
   </Card>
-  <Card title="Configure the plugin" icon="setting">
-    Edit your config in the `astro.config.mjs` file.
+  <Card title="Zero Config" icon="approve-check-circle">
+    Most users need exactly **zero lines** of CSS configuration to get a perfect match.
   </Card>
 </CardGrid>
+
+---
+
+## Ready to Glide?
+
+<Steps>
+1. **Installation**: Add the package to your project.
+2. **Activation**: Enable the plugin in `astro.config.mjs`.
+3. **Enjoy**: Your TOC is now alive.
+</Steps>
+
+[Get Started Now](/getting-started/) | [View the Demos](/demos/)
+
+
