@@ -10,11 +10,37 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/raiz-toff/starlight-glide/edit/main/docs/',
       },
+      customCss: ['./src/styles/custom.css'],
+      head: [
+        {
+          tag: 'script',
+          content: `
+            if (new URLSearchParams(window.location.search).get('embed') === 'true') {
+              document.documentElement.setAttribute('data-embed', 'true');
+            }
+          `,
+        },
+      ],
       plugins: [starlightGlide({ glassmorphism: true })],
+
       sidebar: [
         {
           label: 'Start Here',
-          items: ['getting-started', 'demo'],
+          items: ['getting-started', 'configuration'],
+        },
+        {
+          label: 'Demos',
+          items: [
+            'demos',
+            'demo-snake', 
+            'demo-dot', 
+            'demo-dropdown',
+            'demo-minimal', 
+            'demo-smooth', 
+            'demo-spring', 
+            'demo-snap'
+          ],
+
         },
       ],
       social: [

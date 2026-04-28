@@ -1,0 +1,58 @@
+/* docs/src/styles/custom.css */
+
+/* Hide the preview component itself inside the iframe to avoid infinite recursion */
+html[data-embed="true"] .mobile-preview-container {
+  display: none !important;
+}
+
+/* Ensure the iframe body can scroll normally */
+html[data-embed="true"] body {
+  overflow-x: hidden !important;
+}
+
+/* Phone Mockup Styling for the main page */
+.mobile-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.phone-mockup {
+  width: 375px;
+  height: 667px;
+  border: 12px solid #262626;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  background: var(--sl-color-bg);
+}
+
+.phone-mockup iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* iPhone-style Notch */
+.phone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 25px;
+  background: #262626;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  z-index: 1000;
+}
+
+.mobile-preview-hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  font-style: italic;
+}

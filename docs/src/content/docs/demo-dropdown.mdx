@@ -1,0 +1,54 @@
+---
+title: Mobile Dropdown Demo
+description: Showcase of the mobile dropdown preset with glassmorphism.
+glide:
+  mobile: dropdown
+  physics: smooth
+---
+
+import { Steps, Tabs, TabItem, Badge } from "@astrojs/starlight/components";
+import MobilePreview from "../../components/MobilePreview.astro";
+
+This page demonstrates the **starlight-glide** `dropdown` mobile preset with `glassmorphism` enabled globally.
+
+<MobilePreview />
+
+If you're on desktop, the preview above shows exactly how this page looks on a mobile device.
+
+## Features
+
+<Steps>
+1. **Interactive Dropdown:** Tap the title bar in the preview to see the TOC sections.
+2. **Progress Indicator:** The circle around the current section title updates as you scroll.
+3. **Glassmorphism:** The dropdown menu and title bar use a translucent blur effect.
+</Steps>
+
+## How to Enable
+
+Add this to your `astro.config.mjs`:
+
+```js
+starlightGlide({
+  mobile: 'dropdown',
+  glassmorphism: true,
+})
+```
+
+## Long Page Test
+
+Scroll down to see the progress indicator in action.
+
+## Section One
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+## Section Two
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+### Subsection A
+Ut enim ad minim veniam.
+
+### Subsection B
+Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Section Three
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

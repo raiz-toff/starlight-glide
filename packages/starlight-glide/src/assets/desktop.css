@@ -1,13 +1,20 @@
+/* =================================================================
+   DESKTOP VIEW (>= 72.01rem)
+   Scoped to TOC elements only — no global side-effects
+   ================================================================= */
 @media (min-width: 72.01rem) {
-  /* Container for the TOC navigation */
-  .right-sidebar nav {
+  /* Container for the TOC navigation — scoped to sidebar nav with TOC track */
+  .right-sidebar nav:has(.toc-svg-track),
+  starlight-toc nav {
     position: relative;
     padding-top: 4rem;
   }
 
-  /* Remove default Starlight TOC borders/bullets */
-  .right-sidebar nav ul,
-  .right-sidebar nav ul li {
+  /* Remove default Starlight TOC borders/bullets — scoped to TOC lists */
+  .right-sidebar nav:has(.toc-svg-track) ul,
+  .right-sidebar nav:has(.toc-svg-track) ul li,
+  starlight-toc nav ul,
+  starlight-toc nav ul li {
     border: none;
     list-style: none;
     padding-inline-start: 0;
@@ -15,12 +22,14 @@
     position: relative;
   }
 
-  .right-sidebar nav ul::before {
+  .right-sidebar nav:has(.toc-svg-track) ul::before,
+  starlight-toc nav ul::before {
     display: none;
   }
 
-  /* Hide the default Starlight TOC header on desktop */
-  .right-sidebar nav h2:not(.desktop-toc-header) {
+  /* Hide the default Starlight TOC header on desktop — scoped */
+  .right-sidebar nav:has(.toc-svg-track) h2:not(.desktop-toc-header),
+  starlight-toc nav h2:not(.desktop-toc-header) {
     display: none;
   }
 
@@ -39,7 +48,7 @@
   /* The faint background track */
   .toc-path-track {
     fill: none;
-    stroke: var(--glide-track-color, var(--sl-color-gray-5));
+    stroke: var(--glide-track-color);
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -49,7 +58,7 @@
   /* The glowing active "snake" path */
   .toc-path-snake {
     fill: none;
-    stroke: var(--glide-indicator-color, var(--sl-color-accent));
+    stroke: var(--glide-indicator-color);
     stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -58,13 +67,14 @@
     will-change: stroke-dashoffset, stroke-dasharray;
   }
 
-  /* Styling for the TOC text links */
-  .right-sidebar a {
+  /* Styling for TOC text links — scoped to nav with TOC track */
+  .right-sidebar nav:has(.toc-svg-track) a,
+  starlight-toc nav a {
     display: block;
     text-decoration: none;
     font-size: var(--sl-text-xs);
     line-height: 1.6;
-    color: var(--sl-color-gray-3);
+    color: var(--glide-text-muted);
     border-inline-start: none;
     transition: color 0.2s ease;
     padding-block: 0.35rem;
@@ -75,37 +85,44 @@
   .desktop-toc-header {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--sl-color-white);
+    color: var(--glide-text);
     margin-top: 0;
     margin-bottom: 1rem;
     padding-inline-start: 0;
   }
 
-  /* Indentation for nested headings */
-  .right-sidebar nav ul ul a { padding-inline-start: 2.25rem; }
-  .right-sidebar nav ul ul ul a { padding-inline-start: 3rem; }
+  /* Indentation for nested headings — scoped */
+  .right-sidebar nav:has(.toc-svg-track) ul ul a,
+  starlight-toc nav ul ul a { padding-inline-start: 2.25rem; }
 
-  .right-sidebar a:hover {
-    color: var(--sl-color-white);
+  .right-sidebar nav:has(.toc-svg-track) ul ul ul a,
+  starlight-toc nav ul ul ul a { padding-inline-start: 3rem; }
+
+  .right-sidebar nav:has(.toc-svg-track) a:hover,
+  starlight-toc nav a:hover {
+    color: var(--glide-text);
   }
 
-  /* Active state for the currently viewed section */
-  .right-sidebar a.toc-active,
-  .right-sidebar a[aria-current="true"] {
-    color: var(--glide-indicator-color, var(--sl-color-accent));
+  /* Active state for the currently viewed section — scoped */
+  .right-sidebar nav:has(.toc-svg-track) a.toc-active,
+  .right-sidebar nav:has(.toc-svg-track) a[aria-current="true"],
+  starlight-toc nav a.toc-active,
+  starlight-toc nav a[aria-current="true"] {
+    color: var(--glide-indicator-color);
     font-weight: 600;
   }
 }
 
-/* Glassmorphism overrides for Desktop */
+/* Glassmorphism overrides for Desktop — scoped to sidebar with TOC */
 @media (min-width: 72.01rem) {
-  html.glide-glassmorphism .right-sidebar {
-    background-color: color-mix(in srgb, var(--sl-color-bg) 60%, transparent) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  html.glide-glassmorphism .right-sidebar:has(.toc-svg-track) {
+    background-color: color-mix(in srgb, var(--glide-bg) 60%, transparent);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border-radius: 12px;
     padding: 0.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    border: 1px solid color-mix(in srgb, var(--sl-color-hairline) 40%, transparent);
+    border: 1px solid color-mix(in srgb, var(--glide-border) 40%, transparent);
   }
 }
+

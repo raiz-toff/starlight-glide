@@ -1,6 +1,6 @@
 /* =================================================================
-   MOBILE VIEW (<= 72rem)
-   Scoped to mobile-starlight-toc — no global side-effects
+   Mobile Preset: Dropdown — progress circle + dropdown menu
+   Scoped to mobile-starlight-toc
    ================================================================= */
 @media (max-width: 72rem) {
   /* Container for the mobile TOC */
@@ -40,7 +40,7 @@
     align-items: center !important;
     box-shadow: none !important;
     outline: none !important;
-    opacity: 0; /* Hide the entire box initially */
+    opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease;
   }
@@ -87,7 +87,6 @@
     animation: glideSlideDown 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
   mobile-starlight-toc .dropdown::-webkit-scrollbar {
     display: none !important;
   }
@@ -103,16 +102,11 @@
     }
   }
 
-  /* Hide the drag handle — scoped to mobile TOC */
   mobile-starlight-toc .drag-handle {
     display: none !important;
   }
 
-  /* ---------------------------------------------------------
-     Single-Line Track Logic
-     --------------------------------------------------------- */
-  
-  /* Reset all lists — scoped to mobile TOC */
+  /* Single-Line Track */
   mobile-starlight-toc ul {
     list-style: none;
     padding: 0;
@@ -120,26 +114,22 @@
     position: relative;
   }
 
-  /* Remove default Starlight horizontal separating lines */
-  mobile-starlight-toc ul, 
+  mobile-starlight-toc ul,
   mobile-starlight-toc li {
     border-top: none !important;
     border-bottom: none !important;
   }
 
-  /* Only the main container gets the track line */
   mobile-starlight-toc .dropdown > ul {
     border-left: 1px solid var(--glide-track-color);
     margin-left: 1.5rem;
   }
 
-  /* Nested lists do not shift inward physically */
   mobile-starlight-toc ul ul {
     border-left: none !important;
     margin-left: 0 !important;
   }
 
-  /* Links stay aligned to the main track, text indents via padding */
   mobile-starlight-toc a {
     display: block;
     text-decoration: none;
@@ -151,12 +141,10 @@
     transition: all 0.2s ease;
   }
 
-  /* Level 2 indentation */
   mobile-starlight-toc ul ul a {
     padding-left: 2rem !important;
   }
 
-  /* Level 3 indentation */
   mobile-starlight-toc ul ul ul a {
     padding-left: 3rem !important;
   }
@@ -170,7 +158,6 @@
     font-weight: 600;
   }
 
-  /* Progress circle — scoped to mobile TOC context */
   .toc-progress-circle {
     display: inline-flex;
     align-items: center;
@@ -190,7 +177,7 @@
   }
 }
 
-/* Glassmorphism overrides for Mobile — already scoped to mobile-starlight-toc */
+/* Glassmorphism — Mobile */
 html.glide-glassmorphism mobile-starlight-toc summary,
 html.glide-glassmorphism mobile-starlight-toc .dropdown {
   background-color: color-mix(in srgb, var(--glide-bg) 65%, transparent) !important;
@@ -198,7 +185,6 @@ html.glide-glassmorphism mobile-starlight-toc .dropdown {
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
 }
 
-/* Soften the borders for the glass effect */
 html.glide-glassmorphism mobile-starlight-toc summary {
   border-bottom-color: color-mix(in srgb, var(--glide-border) 40%, transparent) !important;
 }
@@ -206,7 +192,6 @@ html.glide-glassmorphism mobile-starlight-toc .dropdown {
   border-color: color-mix(in srgb, var(--glide-border) 40%, transparent) !important;
 }
 
-/* Hide the static background track lines (mobile) so only the "glider" is visible */
 html.glide-glassmorphism mobile-starlight-toc .dropdown > ul {
   border-left-color: transparent !important;
 }

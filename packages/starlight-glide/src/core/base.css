@@ -1,0 +1,109 @@
+/* =================================================================
+   starlight-glide — Base Styles
+   Shared across all presets. Sets up cascade layer and CSS variables.
+   ================================================================= */
+
+:root {
+  /* 
+    1. Try to use Starlight's accent color (This covers Rapide, Base, etc.)
+    2. If that's missing, fall back to a default Glide blue
+  */
+  --glide-indicator-color: var(--sl-color-accent, #3b82f6);
+  
+  /* Fallbacks for backgrounds, text, and borders */
+  --glide-bg: var(--sl-color-bg-nav, #ffffff);
+  --glide-text: var(--sl-color-text, #111827);
+  --glide-text-muted: var(--sl-color-gray-3, #6b7280);
+  --glide-border: var(--sl-color-hairline, #e5e7eb);
+  --glide-track-color: var(--sl-color-gray-5, #f3f4f6);
+}
+
+/* Scoping: mark sidebar with TOC for isolation */
+.right-sidebar[data-glide-toc] nav,
+starlight-toc nav {
+  position: relative;
+}
+
+/* Remove default Starlight TOC borders/bullets when Glide is active */
+@media (min-width: 72.01rem) {
+  .right-sidebar[data-glide-toc] nav ul,
+  .right-sidebar[data-glide-toc] nav ul li,
+  starlight-toc nav ul,
+  starlight-toc nav ul li {
+    border: none;
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  .right-sidebar[data-glide-toc] nav ul::before,
+  starlight-toc nav ul::before {
+    display: none;
+  }
+
+  /* Hide the default Starlight TOC header — each preset injects its own */
+  .right-sidebar[data-glide-toc] nav h2:not(.desktop-toc-header),
+  starlight-toc nav h2:not(.desktop-toc-header) {
+    display: none;
+  }
+
+  /* Shared desktop TOC header styling */
+  .desktop-toc-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--glide-text);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-inline-start: 0;
+  }
+
+  /* Shared TOC link base styles */
+  .right-sidebar[data-glide-toc] nav a,
+  starlight-toc nav a {
+    display: block;
+    text-decoration: none;
+    font-size: var(--sl-text-xs);
+    line-height: 1.6;
+    color: var(--glide-text-muted);
+    border-inline-start: none;
+    transition: color 0.2s ease;
+    padding-block: 0.35rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  /* Indentation for nested headings */
+  .right-sidebar[data-glide-toc] nav ul ul a,
+  starlight-toc nav ul ul a { padding-inline-start: 2.25rem; }
+
+  .right-sidebar[data-glide-toc] nav ul ul ul a,
+  starlight-toc nav ul ul ul a { padding-inline-start: 3rem; }
+
+  .right-sidebar[data-glide-toc] nav a:hover,
+  starlight-toc nav a:hover {
+    color: var(--glide-text);
+  }
+
+  /* Active state — shared across all desktop presets */
+  .right-sidebar[data-glide-toc] nav a.toc-active,
+  .right-sidebar[data-glide-toc] nav a[aria-current="true"],
+  starlight-toc nav a.toc-active,
+  starlight-toc nav a[aria-current="true"] {
+    color: var(--glide-indicator-color);
+    font-weight: 600;
+  }
+}
+
+/* Glassmorphism — desktop */
+@media (min-width: 72.01rem) {
+  html.glide-glassmorphism .right-sidebar[data-glide-toc] {
+    background-color: color-mix(in srgb, var(--glide-bg) 60%, transparent);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid color-mix(in srgb, var(--glide-border) 40%, transparent);
+  }
+}
+

@@ -1,0 +1,53 @@
+---
+title: Dot Demo
+description: Showcasing the dot table of contents indicator with spring physics.
+glide:
+  desktop: dot
+  physics: spring
+  indicatorColor: '#ff6b6b'
+---
+
+import { Steps, Tabs, TabItem, Badge } from "@astrojs/starlight/components";
+
+This page demonstrates the **starlight-glide** plugin in action with the `dot` desktop preset and `spring` physics <Badge text="Spring Physics" variant="caution" />. Scroll down to see the glowing dot bounce along the track as you progress. We've also overridden the indicator color on this page.
+
+## Bouncy Movement
+
+<Steps>
+1. **Spring Physics:** Notice the slight bounce when you scroll between sections!
+2. **Minimalist Design:** The dot tracks your vertical progress without expanding horizontally.
+3. **Custom Color:** We used the frontmatter config to change the color to red for this specific page.
+</Steps>
+
+## Deep Nesting Test
+
+This section tests how the dot handles nested sections.
+
+### Sub-heading Level 3 (A)
+Since the dot doesn't move horizontally, it stays on the track perfectly aligned.
+
+### Sub-heading Level 3 (B)
+It smoothly travels down to the active heading.
+
+## Animation Features
+
+The dot indicator uses transforms to ensure high-performance animation.
+
+<Tabs>
+  <TabItem label="Overshoot Effect">
+    The spring physics configuration adds a dynamic, lively feel by slightly overshooting the target and snapping back.
+  </TabItem>
+  <TabItem label="Glow Effect">
+    A subtle box-shadow gives the dot a premium glowing appearance.
+  </TabItem>
+</Tabs>
+
+## Conclusion
+
+Try mixing and matching different presets in your frontmatter!
+
+### Feedback
+Let us know which preset you prefer.
+
+### Custom Colors
+Experiment with any CSS valid color string in the `indicatorColor` field.

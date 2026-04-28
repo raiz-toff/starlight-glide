@@ -1,0 +1,52 @@
+---
+title: Spring Dot Demo
+description: Showcasing the dot theme with spring physics and rose styling.
+glide:
+  desktop: dot
+  mobile: dropdown
+  physics: spring
+  indicatorColor: '#f43f5e'
+  trackColor: 'rgba(244, 63, 94, 0.2)'
+---
+
+import { Steps, Tabs, TabItem, Badge } from "@astrojs/starlight/components";
+
+This page demonstrates the **starlight-glide** plugin using the `dot` theme, `spring` physics, and a custom **Rose** color palette.
+
+## Theme & Physics
+
+<Steps>
+1. **Dot Theme:** The indicator is a glowing dot that slides vertically along the track.
+2. **Spring Physics:** Notice the bouncy overshoot effect when the dot travels between headings.
+3. **Custom Colors:** We are using `#f43f5e` for the dot and a translucent rose for the track.
+</Steps>
+
+## Deep Nesting Test
+
+Scroll down and watch the spring animation bounce!
+
+### Sub-heading Level 3 (A)
+The dot stays horizontally aligned, making it look incredibly clean.
+
+### Sub-heading Level 3 (B)
+It smoothly travels down to the active heading and bounces into place.
+
+## Animation Features
+
+The dot indicator uses transforms to ensure high-performance animation.
+
+<Tabs>
+  <TabItem label="Overshoot Effect">
+    The spring physics configuration adds a dynamic, lively feel by slightly overshooting the target and snapping back.
+  </TabItem>
+  <TabItem label="Glow Effect">
+    A subtle box-shadow gives the dot a premium glowing appearance that matches the indicator color.
+  </TabItem>
+</Tabs>
+
+## Conclusion
+
+Try mixing and matching different presets in your frontmatter!
+
+### Custom Colors
+Experiment with any CSS valid color string in the `indicatorColor` and `trackColor` fields.
